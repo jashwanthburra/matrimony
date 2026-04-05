@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deekonda Harshini – Matrimony Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:  #c8705a;
+  --gold:  #c9a84c;
+  --gold2: #e8c97a;
+  --cream: #fdf6ee;
+  --deep:  #2b1a14;
+  --muted: #7a5c52;
+  --card:  #fff9f4;
+  --bdr:   rgba(201,168,76,0.3);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Josefin Sans',sans-serif;background:var(--cream);color:var(--deep);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── PARTICLES CANVAS ── */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55}
+
+/* ── HERO ── */
+.hero{position:relative;height:100svh;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;overflow:hidden;padding-bottom:44px}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transform:scale(1.08);animation:heroZoom 18s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1.18)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,5,3,.1) 0%,rgba(10,5,3,.05) 25%,rgba(10,5,3,.58) 62%,rgba(10,5,3,.97) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 16px;width:100%;display:flex;flex-direction:column;align-items:center}
+
+/* badge */
+.badge{display:inline-block;font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.5);padding:5px 16px;border-radius:50px;margin-bottom:12px;backdrop-filter:blur(8px);background:rgba(201,168,76,.1);animation:badgePulse 3s ease infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4)}50%{box-shadow:0 0 0 8px rgba(201,168,76,0)}}
+
+/* avatar */
+.avatar-wrap{position:relative;width:88px;height:88px;margin-bottom:12px}
+.avatar-ring3{position:absolute;inset:-13px;border-radius:50%;border:1px solid rgba(201,168,76,.12);animation:spin 20s linear infinite}
+.avatar-ring2{position:absolute;inset:-7px;border-radius:50%;border:1px dashed rgba(201,168,76,.28);animation:spin 12s linear infinite reverse}
+.avatar-ring{position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(201,168,76,.55)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;position:relative;z-index:1;border:2px solid rgba(201,168,76,.7);box-shadow:0 0 22px rgba(201,168,76,.35),0 0 44px rgba(201,168,76,.12)}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+
+/* name */
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,9vw,72px);font-weight:300;color:#fff;line-height:1.0;letter-spacing:.02em;text-shadow:0 2px 30px rgba(0,0,0,.5);margin-bottom:0}
+.hero-name em{font-style:italic;color:#f0c9a0;display:block}
+.hero-script{font-family:'Great Vibes',cursive;font-size:clamp(17px,4.2vw,30px);color:rgba(201,168,76,.85);margin-top:3px;letter-spacing:.04em}
+.hero-title{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px;margin-bottom:14px;line-height:1.7;padding:0 4px}
+
+/* divider */
+.hero-divider{display:flex;align-items:center;gap:8px;margin:0 auto 14px;width:90px}
+.hero-divider span{flex:1;height:1px;background:rgba(255,255,255,.25)}
+.hero-divider i{color:var(--gold);font-size:13px;font-style:normal}
+
+/* stats pill */
+.hero-stats{display:flex;gap:0;justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;backdrop-filter:blur(14px);overflow:hidden;width:100%;max-width:340px;margin:0 auto}
+.hero-stat{flex:1;padding:10px 4px;text-align:center;border-right:1px solid rgba(255,255,255,.1);min-width:0}
+.hero-stat:last-child{border-right:none}
+.hero-stat-val{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 2px}
+.hero-stat-lbl{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:2px;display:block}
+
+/* scroll hint */
+.scroll-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.scroll-line{width:1px;height:24px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:360px){
+  .avatar-wrap{width:74px;height:74px}
+  .avatar{width:74px;height:74px}
+  .hero-stat-val{font-size:14px}
+  .hero-title{font-size:8px;letter-spacing:.1em}
+}
+@media(min-width:600px){
+  .avatar-wrap{width:120px;height:120px}
+  .avatar{width:120px;height:120px}
+  .avatar-ring3{inset:-18px}
+  .avatar-ring2{inset:-10px}
+  .avatar-ring{inset:-4px}
+  .hero-stat-val{font-size:22px}
+  .hero-stat-lbl{font-size:8px}
+  .hero-stats{max-width:400px;border-radius:18px}
+  .hero-stat{padding:14px 8px}
+  .badge{font-size:9px;padding:6px 20px;margin-bottom:18px}
+  .avatar-wrap{margin-bottom:18px}
+  .hero-title{font-size:10px;margin-bottom:20px}
+}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<style>
+/* ── SECTIONS ── */
+section{padding:28px 20px;max-width:500px;margin:0 auto;position:relative;z-index:1}
+.section-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,38px);font-weight:300;line-height:1.12;margin-bottom:28px}
+.section-heading em{font-style:italic;color:var(--rose)}
+
+/* ── CARD ── */
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:18px;padding:22px 20px;margin-bottom:14px;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(43,26,20,.12)}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--gold),var(--rose));border-radius:3px 0 0 3px}
+.card-icon{font-size:24px;margin-bottom:10px;display:block}
+.card-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;display:block}
+.card-value{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:400;color:var(--deep);display:block}
+.card-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid2 .card{margin-bottom:0}
+
+/* ── INFO ROWS ── */
+.info-row{display:flex;justify-content:space-between;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(201,168,76,.15);gap:12px}
+.info-row:last-child{border-bottom:none}
+.info-key{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);flex:0 0 auto;padding-top:2px}
+.info-val{font-family:'Cormorant Garamond',serif;font-size:17px;text-align:right;color:var(--deep)}
+
+/* ── GALLERY ── */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gallery-item{border-radius:16px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--bdr);position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.gallery-item:hover img{transform:scale(1.07)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(43,26,20,.45) 0%,transparent 50%);opacity:0;transition:opacity .3s ease}
+.gallery-item:hover::after{opacity:1}
+
+/* ── ASTRO ── */
+.astro-block{background:linear-gradient(135deg,#1e1008 0%,#3d2419 100%);border-radius:20px;padding:30px 24px;color:#f5e6d8;position:relative;overflow:hidden;margin-bottom:14px}
+.astro-block::before{content:'✦';position:absolute;top:12px;right:16px;font-size:60px;opacity:.07;color:var(--gold)}
+.astro-block::after{content:'';position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.15),transparent 70%)}
+.astro-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.astro-row:last-child{border-bottom:none}
+.astro-key{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,230,216,.5)}
+.astro-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold)}
+
+/* ── FAMILY ── */
+.family-member{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(201,168,76,.12)}
+.family-member:last-child{border-bottom:none}
+.family-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#e8c4b8,#f5e6d8);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:1px solid var(--bdr)}
+.family-info-name{font-family:'Cormorant Garamond',serif;font-size:18px}
+.family-info-role{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:1px}
+
+/* ── PREFS ── */
+.pref-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bdr);border-radius:50px;padding:8px 16px;font-size:11px;letter-spacing:.08em;color:var(--deep);background:var(--card);margin:5px 4px 5px 0;transition:background .25s,border-color .25s}
+.pref-chip:hover{background:#fff3e8;border-color:var(--gold)}
+.pref-chip-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,var(--gold),var(--rose),transparent)}
+.tl-item{position:relative;margin-bottom:22px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--cream);box-shadow:0 0 0 2px var(--gold)}
+.tl-year{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--deep)}
+.tl-sub{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* ── CTA ── */
+.cta-section{background:linear-gradient(135deg,var(--rose) 0%,#a8543e 100%);border-radius:22px;padding:40px 28px;text-align:center;color:#fff;margin:0 20px 70px;max-width:460px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;z-index:1}
+.cta-section::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.07)}
+.cta-section::after{content:'';position:absolute;bottom:-50px;left:-30px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.05)}
+.cta-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.cta-heading{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;margin-bottom:6px}
+.cta-sub{font-size:11px;opacity:.75;letter-spacing:.05em;margin-bottom:24px}
+.cta-phone{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:50px;padding:13px 26px;font-family:'Cormorant Garamond',serif;font-size:23px;color:#fff;text-decoration:none;letter-spacing:.04em;backdrop-filter:blur(6px);transition:background .25s,transform .2s}
+.cta-phone:hover{background:rgba(255,255,255,.28);transform:scale(1.03)}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:0 20px 44px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.65;position:relative;z-index:1}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* ── GLITTER LINE ── */
+.glitter-line{display:flex;align-items:center;gap:10px;margin:0 0 18px}
+.glitter-line span{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.glitter-gem{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);border-radius:1px;animation:gemPulse 2s ease infinite}
+@keyframes gemPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.6)}50%{box-shadow:0 0 0 5px rgba(201,168,76,0)}}
+
+/* ── COUNTER NUMBERS ── */
+.counter{display:inline-block}
+
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;background:rgba(10,5,3,.92);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(8px)}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;object-fit:contain;transform:scale(.9);transition:transform .3s ease}
+.lightbox.open img{transform:scale(1)}
+.lightbox-close{position:absolute;top:20px;right:24px;color:#fff;font-size:28px;cursor:pointer;opacity:.7;transition:opacity .2s}
+.lightbox-close:hover{opacity:1}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="assets/WhatsApp Image 2026-04-02 at 7.22.27 PM.jpeg" alt="Harshini">
+  </div>
+  <div class="hero-content">
+    <div class="badge">✦ Matrimony Profile ✦</div>
+    <div class="avatar-wrap">
+      <div class="avatar-ring3"></div>
+      <div class="avatar-ring2"></div>
+      <div class="avatar-ring"></div>
+      <div class="avatar">
+        <img src="assets/WhatsApp Image 2026-04-02 at 7.22.26 PM.jpeg" alt="Harshini">
+      </div>
+    </div>
+    <h1 class="hero-name">Deekonda<em>Harshini</em></h1>
+    <p class="hero-script">A Heart Full of Grace</p>
+    <p class="hero-title">MD General Medicine · 2nd Year Resident</p>
+    <div class="hero-divider"><span></span><i>❧</i><span></span></div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-val counter" data-target="26">0</span>
+        <span class="hero-stat-lbl">Age</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val">5′4″</span>
+        <span class="hero-stat-lbl">Height</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val">Hindu</span>
+        <span class="hero-stat-lbl">Religion</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val">Mera</span>
+        <span class="hero-stat-lbl">Caste</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- ── PERSONAL ── -->
+<section class="reveal">
+  <div class="glitter-line"><span></span><div class="glitter-gem"></div><span></span></div>
+  <p class="section-label">About Her</p>
+  <h2 class="section-heading">Personal <em>Details</em></h2>
+  <div class="card">
+    <div class="info-row"><span class="info-key">Full Name</span><span class="info-val">Deekonda Harshini</span></div>
+    <div class="info-row"><span class="info-key">Date of Birth</span><span class="info-val">26 November 1999</span></div>
+    <div class="info-row"><span class="info-key">Age</span><span class="info-val">26 Years</span></div>
+    <div class="info-row"><span class="info-key">Height</span><span class="info-val">5′4″ (162 cm)</span></div>
+    <div class="info-row"><span class="info-key">Religion</span><span class="info-val">Hindu</span></div>
+    <div class="info-row"><span class="info-key">Caste</span><span class="info-val">Mera</span></div>
+    <div class="info-row"><span class="info-key">Occupation</span><span class="info-val">MD General Medicine (2nd Year)</span></div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section class="reveal">
+  <div class="glitter-line"><span></span><div class="glitter-gem"></div><span></span></div>
+  <p class="section-label">Photos</p>
+  <h2 class="section-heading">Photo <em>Gallery</em></h2>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal-left" onclick="openLightbox(this)">
+      <img src="assets/WhatsApp Image 2026-04-02 at 7.22.26 PM.jpeg" alt="Harshini 1">
+    </div>
+    <div class="gallery-item reveal-right" onclick="openLightbox(this)">
+      <img src="assets/WhatsApp Image 2026-04-02 at 7.22.26 PM (1).jpeg" alt="Harshini 2">
+    </div>
+    <div class="gallery-item reveal-left" onclick="openLightbox(this)">
+      <img src="assets/WhatsApp Image 2026-04-02 at 7.22.26 PM (2).jpeg" alt="Harshini 3">
+    </div>
+    <div class="gallery-item reveal-right" onclick="openLightbox(this)">
+      <img src="assets/WhatsApp Image 2026-04-02 at 7.22.27 PM.jpeg" alt="Harshini 4">
+    </div>
+  </div>
+</section>
+
+<!-- ── EDUCATION TIMELINE ── -->
+<section class="reveal">
+  <div class="glitter-line"><span></span><div class="glitter-gem"></div><span></span></div>
+  <p class="section-label">Education</p>
+  <h2 class="section-heading">Academic <em>Journey</em></h2>
+  <div class="card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024 – Present</div>
+        <div class="tl-title">MD General Medicine</div>
+        <div class="tl-sub">2nd Year Resident · Postgraduate</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2018 – 2023</div>
+        <div class="tl-title">MBBS</div>
+        <div class="tl-sub">Bachelor of Medicine & Surgery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ASTROLOGY ── -->
+<section class="reveal">
+  <div class="glitter-line"><span></span><div class="glitter-gem"></div><span></span></div>
+  <p class="section-label">Horoscope</p>
+  <h2 class="section-heading">Astro <em>Profile</em></h2>
+  <div class="astro-block">
+    <div class="astro-row"><span class="astro-key">Rashi</span><span class="astro-val">Gemini (Mithuna)</span></div>
+    <div class="astro-row"><span class="astro-key">Nakshatram</span><span class="astro-val">Punarvasu</span></div>
+  </div>
+</section>
+
+<!-- ── FAMILY ── -->
+<section class="reveal">
+  <div class="glitter-line"><span></span><div class="glitter-gem"></div><span></span></div>
+  <p class="section-label">Family</p>
+  <h2 class="section-heading">Family <em>Background</em></h2>
+  <div class="card">
+    <div class="family-member">
+      <div class="family-avatar">👨</div>
+      <div><div class="family-info-name">Deekonda Ramu</div><div class="family-info-role">Father · Business</div></div>
+    </div>
+    <div class="family-member">
+      <div class="family-avatar">👩</div>
+      <div><div class="family-info-name">Deekonda Kalpana</div><div class="family-info-role">Mother · Government Teacher</div></div>
+    </div>
+    <div class="family-member">
+      <div class="family-avatar">👦</div>
+      <div><div class="family-info-name">D. Goutham</div><div class="family-info-role">Younger Brother · BDS</div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:0">
+    <span class="card-label">Family Location</span>
+    <span class="card-value">📍 Warangal, Telangana</span>
+  </div>
+</section>
+
+<!-- ── PARTNER PREFS ── -->
+<section class="reveal">
+  <div class="glitter-line"><span></span><div class="glitter-gem"></div><span></span></div>
+  <p class="section-label">Looking For</p>
+  <h2 class="section-heading">Partner <em>Preferences</em></h2>
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card">
+      <span class="card-icon">🎂</span>
+      <span class="card-label">Age Range</span>
+      <span class="card-value">26 – 31</span>
+      <p class="card-sub">Years</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📏</span>
+      <span class="card-label">Height</span>
+      <span class="card-value">5′6″ – 6′0″</span>
+      <p class="card-sub">Preferred</p>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:0">
+    <span class="card-label">Occupation Preference</span>
+    <div style="margin-top:10px">
+      <span class="pref-chip"><span class="pref-chip-dot"></span>PG Doctors</span>
+      <span class="pref-chip"><span class="pref-chip-dot"></span>Medical Professionals</span>
+      <span class="pref-chip"><span class="pref-chip-dot"></span>Professionals</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta-section reveal">
+  <p class="cta-label">✦ Get in Touch ✦</p>
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;margin-bottom:6px">Begin a Conversation</h3>
+  <p style="font-size:11px;opacity:.75;letter-spacing:.05em;margin-bottom:24px">Reach out to discuss this proposal</p>
+  <a class="cta-phone" href="tel:+919491318881">📞 +91 94913 18881</a>
+</div>
+
+<footer>✦ &nbsp; Deekonda Harshini &nbsp;·&nbsp; Matrimony Profile &nbsp; ✦</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+// ── PARTICLES (gold dust) ──
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+resize(); window.addEventListener('resize', resize);
+
+function Particle(){
+  this.x = Math.random()*W;
+  this.y = Math.random()*H;
+  this.r = Math.random()*1.4+.3;
+  this.vx = (Math.random()-.5)*.3;
+  this.vy = (Math.random()-.5)*.3;
+  this.alpha = Math.random()*.5+.15;
+  this.color = Math.random()>.5 ? '#c9a84c' : '#c8705a';
+}
+for(let i=0;i<70;i++) particles.push(new Particle());
+
+function drawParticles(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.alpha;
+    ctx.fill();
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>W) p.vx*=-1;
+    if(p.y<0||p.y>H) p.vy*=-1;
+  });
+  ctx.globalAlpha=1;
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+// ── INDIAN CULTURAL FLOATING ICONS ──
+const icons = [
+  { sym:'🪔', label:'diya' },
+  { sym:'🌸', label:'flower' },
+  { sym:'🪷', label:'lotus' },
+  { sym:'🐘', label:'elephant' },
+  { sym:'🌺', label:'hibiscus' },
+  { sym:'🔱', label:'trishul' },
+  { sym:'🪬', label:'nazar' },
+  { sym:'🌼', label:'marigold' },
+  { sym:'🎊', label:'celebration' },
+  { sym:'🪭', label:'fan' },
+  { sym:'💍', label:'ring' },
+  { sym:'�', label:'leaf' },
+  { sym:'✨', label:'sparkle' },
+  { sym:'🕉️', label:'om' },
+  { sym:'🪘', label:'drum' },
+];
+
+function spawnIcon(){
+  const el = document.createElement('div');
+  el.className = 'float-icon';
+  const pick = icons[Math.floor(Math.random()*icons.length)];
+  el.textContent = pick.sym;
+  const size = Math.random()*18+12;
+  el.style.cssText = `
+    position:fixed;
+    pointer-events:none;
+    z-index:0;
+    font-size:${size}px;
+    left:${Math.random()*100}vw;
+    top:-60px;
+    opacity:0;
+    filter:drop-shadow(0 0 6px rgba(201,168,76,.5));
+    animation: iconDrift ${Math.random()*12+10}s linear forwards;
+    animation-delay:${Math.random()*3}s;
+  `;
+  document.body.appendChild(el);
+  const dur = parseFloat(el.style.animationDuration||'14')+3;
+  setTimeout(()=>el.remove(), (dur+4)*1000);
+}
+
+// inject keyframes dynamically for varied drift paths
+const driftStyle = document.createElement('style');
+driftStyle.textContent = `
+@keyframes iconDrift {
+  0%   { transform: translateY(0)   rotate(0deg)   scale(.8); opacity:0; }
+  8%   { opacity: .75; }
+  50%  { transform: translateY(50vh) rotate(180deg) scale(1); opacity:.6; }
+  92%  { opacity: .5; }
+  100% { transform: translateY(110vh) rotate(360deg) scale(.7); opacity:0; }
+}
+`;
+document.head.appendChild(driftStyle);
+
+setInterval(spawnIcon, 900);
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+},{threshold:0.1});
+revealEls.forEach(el=>io.observe(el));
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el){
+  const target = +el.dataset.target;
+  let current = 0;
+  const step = target/40;
+  const timer = setInterval(()=>{
+    current = Math.min(current+step, target);
+    el.textContent = Math.floor(current);
+    if(current>=target) clearInterval(timer);
+  },40);
+}
+const counterObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ animateCounter(e.target); counterObs.unobserve(e.target); } });
+},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(el=>counterObs.observe(el));
+
+// ── CARD TILT ──
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX-r.left)/r.width-.5;
+    const y = (e.clientY-r.top)/r.height-.5;
+    card.style.transform = `perspective(600px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-3px)`;
+  });
+  card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
+});
+
+// ── LIGHTBOX ──
+function openLightbox(item){
+  const img = item.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLightbox(); });
+
+// ── HERO STATS ENTRANCE ──
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.hero-stat').forEach((s,i)=>{
+    s.style.opacity='0';
+    s.style.transform='translateY(16px)';
+    setTimeout(()=>{
+      s.style.transition='opacity .5s ease, transform .5s ease';
+      s.style.opacity='1';
+      s.style.transform='translateY(0)';
+    },600+i*120);
+  });
+});
+</script>
+</body>
+</html>
